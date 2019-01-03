@@ -11,9 +11,12 @@
 		49F7418E21DD823F0005EB65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F7418D21DD823F0005EB65 /* ViewController.swift */; };
 		49F7419021DD825E0005EB65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F7418F21DD825E0005EB65 /* Assets.xcassets */; };
 		49F7419321DD825E0005EB65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49F7419121DD825E0005EB65 /* Main.storyboard */; };
+		A9CAED8334AF693428F9CEC0 /* Pods_nBot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DF9E2E9EEF6FDB91FF66D5 /* Pods_nBot.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15DF9E2E9EEF6FDB91FF66D5 /* Pods_nBot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nBot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A5B44EEA586568D3732E38A /* Pods-nBot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nBot.release.xcconfig"; path = "Pods/Target Support Files/Pods-nBot/Pods-nBot.release.xcconfig"; sourceTree = "<group>"; };
 		49F7418821DD823F0005EB65 /* nBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F7418B21DD823F0005EB65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49F7418D21DD823F0005EB65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -21,6 +24,7 @@
 		49F7419221DD825E0005EB65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49F7419421DD825E0005EB65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49F7419521DD825E0005EB65 /* nBot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nBot.entitlements; sourceTree = "<group>"; };
+		E3BF970FD74F884DBEC44304 /* Pods-nBot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nBot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nBot/Pods-nBot.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,17 +32,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9CAED8334AF693428F9CEC0 /* Pods_nBot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CC0830A99B0CDB5A1EAC150 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15DF9E2E9EEF6FDB91FF66D5 /* Pods_nBot.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		49F7417F21DD823D0005EB65 = {
 			isa = PBXGroup;
 			children = (
 				49F7418A21DD823F0005EB65 /* nBot */,
 				49F7418921DD823F0005EB65 /* Products */,
+				68BDC8C5F3D9FCA46EA8B904 /* Pods */,
+				0CC0830A99B0CDB5A1EAC150 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +78,15 @@
 			path = nBot;
 			sourceTree = "<group>";
 		};
+		68BDC8C5F3D9FCA46EA8B904 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E3BF970FD74F884DBEC44304 /* Pods-nBot.debug.xcconfig */,
+				1A5B44EEA586568D3732E38A /* Pods-nBot.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -70,9 +94,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49F7419821DD825E0005EB65 /* Build configuration list for PBXNativeTarget "nBot" */;
 			buildPhases = (
+				D46B05D211E03361D412B492 /* [CP] Check Pods Manifest.lock */,
 				49F7418421DD823E0005EB65 /* Sources */,
 				49F7418521DD823E0005EB65 /* Frameworks */,
 				49F7418621DD823E0005EB65 /* Resources */,
+				DC268B66E6CF2E5E56FB7EBD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -95,6 +121,11 @@
 				TargetAttributes = {
 					49F7418721DD823E0005EB65 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -127,6 +158,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D46B05D211E03361D412B492 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-nBot-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC268B66E6CF2E5E56FB7EBD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-nBot/Pods-nBot-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nBot/Pods-nBot-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		49F7418421DD823E0005EB65 /* Sources */ = {
@@ -269,11 +339,14 @@
 		};
 		49F7419921DD825E0005EB65 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3BF970FD74F884DBEC44304 /* Pods-nBot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = nBot/nBot.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = B2GKW4DTXJ;
 				INFOPLIST_FILE = nBot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -281,17 +354,21 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = feels024.nBot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
 		49F7419A21DD825E0005EB65 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A5B44EEA586568D3732E38A /* Pods-nBot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = nBot/nBot.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = B2GKW4DTXJ;
 				INFOPLIST_FILE = nBot/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -299,6 +376,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = feels024.nBot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
