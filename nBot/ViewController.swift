@@ -61,10 +61,19 @@ class ViewController: NSViewController {
                                 {
                                     for item in doc.css("div[class^='grid-item fullSize']")
                                     {
+                                        print("item: \(count)")
+                                        
+                                        let itemName = item.css("p[class^='product-display-name nsg-font-family--base edf-font-size--regular nsg-text--dark-grey']")
+                                        
+                                        /*
                                         for itemName in item.css(("p[class^='product-display-name nsg-font-family--base edf-font-size--regular nsg-text--dark-grey']"))
                                         {
                                             print(itemName.text!)
                                         }
+                                        */
+                                            
+                                        print(itemName.first!.text!)
+                                            
                                         count += 1
                                     }
                                     
