@@ -72,7 +72,13 @@ class ViewController: NSViewController {
                                         }
                                         */
                                             
-                                        print(itemName.first!.text!)
+                                        print("item name: \(itemName.first!.text!)")
+                                        
+                                        //CHECK IF CHECKLIST ITEM NAME MATCHES CURRENT ITEM
+                                        
+                                        let itemURL = item.css("a")
+                                        
+                                        print("item URL: \(itemURL.first!["href"]!)")
                                             
                                         count += 1
                                     }
