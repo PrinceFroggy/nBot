@@ -34,15 +34,21 @@ class ViewController: NSViewController {
         }
     }
 
-    @IBAction func buttonPressed(_ sender: NSButton)
+    @IBAction func botButtonPressed(_ sender: NSButton)
     {
         AI_FirstStep_LoadCategory_FindItem()
+    }
+    
+    @IBAction func settingsButtonPressed(_ sender: NSButton)
+    {
+        
     }
     
     func AI_FirstStep_LoadCategory_FindItem()
     {
         DispatchQueue.main.async
             {
+                /*
                 let urlReq = URLRequest(url: URL(string: "https://store.nike.com/ca/en_gb/pw/mens-jordan-shoes/7puZofqZoi3")!)
                 
                 self.nikeWKWebView.load(urlReq)
@@ -72,13 +78,17 @@ class ViewController: NSViewController {
                                         }
                                         */
                                             
-                                        print("item name: \(itemName.first!.text!)")
+                                        print("item Name: \(itemName.first!.text!)")
+                                        
+                                        let itemType = item.css("p[class^='product-subtitle nsg-font-family--base edf-font-size--regular nsg-text--medium-grey']")
+                                        
+                                        print("item Type: \(itemType.first!.text!)")
                                         
                                         //CHECK IF CHECKLIST ITEM NAME MATCHES CURRENT ITEM
                                         
-                                        let itemURL = item.css("a")
+                                        let itemUrl = item.css("a")
                                         
-                                        print("item URL: \(itemURL.first!["href"]!)")
+                                        print("item Url: \(itemUrl.first!["href"]!)")
                                             
                                         count += 1
                                     }
@@ -89,6 +99,7 @@ class ViewController: NSViewController {
                                 })
                         }
                 }
+                */
             }
     }
 }

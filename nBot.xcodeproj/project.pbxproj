@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		491157C22238864400953A22 /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491157C12238864400953A22 /* settingsViewController.swift */; };
+		491157C4223886C700953A22 /* SharingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491157C3223886C700953A22 /* SharingManager.swift */; };
 		49F7418C21DD823F0005EB65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F7418B21DD823F0005EB65 /* AppDelegate.swift */; };
 		49F7418E21DD823F0005EB65 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F7418D21DD823F0005EB65 /* ViewController.swift */; };
 		49F7419021DD825E0005EB65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49F7418F21DD825E0005EB65 /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 /* Begin PBXFileReference section */
 		15DF9E2E9EEF6FDB91FF66D5 /* Pods_nBot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nBot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A5B44EEA586568D3732E38A /* Pods-nBot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nBot.release.xcconfig"; path = "Pods/Target Support Files/Pods-nBot/Pods-nBot.release.xcconfig"; sourceTree = "<group>"; };
+		491157C12238864400953A22 /* settingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
+		491157C3223886C700953A22 /* SharingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingManager.swift; sourceTree = "<group>"; };
 		49F7418821DD823F0005EB65 /* nBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49F7418B21DD823F0005EB65 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49F7418D21DD823F0005EB65 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 				49F7419121DD825E0005EB65 /* Main.storyboard */,
 				49F7419421DD825E0005EB65 /* Info.plist */,
 				49F7419521DD825E0005EB65 /* nBot.entitlements */,
+				491157C12238864400953A22 /* settingsViewController.swift */,
+				491157C3223886C700953A22 /* SharingManager.swift */,
 			);
 			path = nBot;
 			sourceTree = "<group>";
@@ -205,6 +211,8 @@
 			files = (
 				49F7418E21DD823F0005EB65 /* ViewController.swift in Sources */,
 				49F7418C21DD823F0005EB65 /* AppDelegate.swift in Sources */,
+				491157C4223886C700953A22 /* SharingManager.swift in Sources */,
+				491157C22238864400953A22 /* settingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

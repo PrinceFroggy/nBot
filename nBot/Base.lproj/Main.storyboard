@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
-        <plugIn identifier="com.apple.WebKit2IBPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -730,6 +730,25 @@
                                     <action selector="buttonPressed:" target="XfG-lQ-9wD" id="zYV-UQ-ism"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wNB-Hv-evC">
+                                <rect key="frame" x="432" y="13" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VFQ-G9-eQ5">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="settingsButtonPressed:" target="XfG-lQ-9wD" id="3Dm-C1-0Xu"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eu4-p7-Tu0">
+                                <rect key="frame" x="14" y="13" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="z50-1B-Bag">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -739,6 +758,91 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="907"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="fuC-zU-Qg0">
+            <objects>
+                <viewController id="1Fn-rD-Rme" customClass="settingsViewController" customModule="nBot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="yoI-ZX-mKk">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="413"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qyK-Gi-YYW">
+                                <rect key="frame" x="20" y="369" width="413" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="country" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="bDb-1K-kfn">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <objectValues>
+                                        <string>CA</string>
+                                        <string>US</string>
+                                    </objectValues>
+                                </comboBoxCell>
+                            </comboBox>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BnG-Uj-Z0a">
+                                <rect key="frame" x="20" y="343" width="410" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="shoe name" drawsBackground="YES" id="UjU-bs-HTI">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aDd-oM-b9t">
+                                <rect key="frame" x="185" y="13" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SCZ-9K-hG4">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="closeButtonPressed:" target="1Fn-rD-Rme" id="Yr6-tz-Hvt"/>
+                                </connections>
+                            </button>
+                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iBb-5R-cSc">
+                                <rect key="frame" x="20" y="308" width="413" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="shoe size" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="tXj-KK-Skp">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <objectValues>
+                                        <string>6</string>
+                                        <string>6.5</string>
+                                        <string>7</string>
+                                        <string>7.5</string>
+                                        <string>8</string>
+                                        <string>8.5</string>
+                                        <string>9</string>
+                                        <string>9.5</string>
+                                        <string>10</string>
+                                        <string>10.5</string>
+                                        <string>11</string>
+                                        <string>11.5</string>
+                                        <string>12</string>
+                                        <string>12.5</string>
+                                        <string>13</string>
+                                        <string>13.5</string>
+                                        <string>14</string>
+                                        <string>14.5</string>
+                                        <string>15</string>
+                                        <string>15.5</string>
+                                        <string>16</string>
+                                    </objectValues>
+                                </comboBoxCell>
+                            </comboBox>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="countryComboBox" destination="qyK-Gi-YYW" id="APP-MY-WsG"/>
+                        <outlet property="shoeNameTextField" destination="BnG-Uj-Z0a" id="b5e-fS-yae"/>
+                        <outlet property="shoeSizeComboBox" destination="iBb-5R-cSc" id="FXQ-E1-fb5"/>
+                    </connections>
+                </viewController>
+                <customObject id="Kew-Ch-EnZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="85" y="1565.5"/>
         </scene>
     </scenes>
 </document>
