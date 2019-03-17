@@ -727,7 +727,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="buttonPressed:" target="XfG-lQ-9wD" id="zYV-UQ-ism"/>
+                                    <action selector="botButtonPressed:" target="XfG-lQ-9wD" id="rrK-eq-NV8"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wNB-Hv-evC">
@@ -762,7 +762,7 @@
         <!--Settings View Controller-->
         <scene sceneID="fuC-zU-Qg0">
             <objects>
-                <viewController id="1Fn-rD-Rme" customClass="settingsViewController" customModule="nBot" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settings" id="1Fn-rD-Rme" customClass="settingsViewController" customModule="nBot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="yoI-ZX-mKk">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="413"/>
                         <autoresizingMask key="autoresizingMask"/>
