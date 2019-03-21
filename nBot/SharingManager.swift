@@ -13,6 +13,7 @@ class SharingManager
     var country = ""
     var shoeName = ""
     var shoeSize = ""
+    var shoeColor = ""
     
     static let sharedInstance = SharingManager()
 }

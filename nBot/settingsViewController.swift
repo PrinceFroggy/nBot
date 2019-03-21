@@ -13,6 +13,7 @@ class settingsViewController: NSViewController
     @IBOutlet weak var countryComboBox: NSComboBox!
     @IBOutlet weak var shoeNameTextField: NSTextField!
     @IBOutlet weak var shoeSizeComboBox: NSComboBox!
+    @IBOutlet weak var shoeColorTextField: NSTextField!
     
     override func viewDidLoad()
     {
@@ -25,6 +26,7 @@ class settingsViewController: NSViewController
         SharingManager.sharedInstance.country = countryComboBox.stringValue
         SharingManager.sharedInstance.shoeName = shoeNameTextField.stringValue
         SharingManager.sharedInstance.shoeSize = shoeSizeComboBox.stringValue
+        SharingManager.sharedInstance.shoeColor = shoeColorTextField.stringValue
         
         self.dismiss(self)
     }
