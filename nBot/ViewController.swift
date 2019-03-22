@@ -22,6 +22,8 @@ class ViewController: NSViewController {
     
     var urlMainJordanPageReq: URLRequest?
     
+    var shoeType: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -181,6 +183,8 @@ class ViewController: NSViewController {
                                 
                                 let itemType = item.css("p[class^='product-subtitle nsg-font-family--base edf-font-size--regular nsg-text--medium-grey']")
                                 
+                                self.shoeType = itemType.first!.text!
+                                
                                 print("item Type: \(itemType.first!.text!)")
                                 
                                 let itemUrl = item.css("a")
@@ -235,7 +239,6 @@ class ViewController: NSViewController {
         DispatchQueue.main.async
         {
             var urlReq: URLRequest?
-            var foundItemColor = false
             
             self.nikeWKWebView.evaluateJavaScript("document.documentElement.outerHTML.toString()", completionHandler: { (html: Any?, error: Error?) in
                 
@@ -254,8 +257,6 @@ class ViewController: NSViewController {
 
                         if itemColour.first!["alt"]!.range(of:SharingManager.sharedInstance.shoeColor) != nil
                         {
-                            foundItemColor = true
-                                    
                             urlReq = URLRequest(url: URL(string: itemSelection.first!["href"]!)!)
                                     
                             self.nikeWKWebView.load(urlReq!)
@@ -265,13 +266,12 @@ class ViewController: NSViewController {
                     }
                 }
                 
-                if (foundItemColor)
+                self.browserDelay.asyncAfter(deadline: .now() + self.delay)
                 {
-                    self.AI_FourthStep_SelectSize_AddToCart()
-                }
-                else
-                {
-                        
+                    DispatchQueue.main.async
+                    {
+                        self.AI_FourthStep_SelectSize_AddToCart()
+                    }
                 }
             })
         }
@@ -279,6 +279,23 @@ class ViewController: NSViewController {
     
     func AI_FourthStep_SelectSize_AddToCart()
     {
+        let maleStringSize = String(SharingManager.sharedInstance.shoeSize)
         
+        let convertStringDoubleSize = Double(maleStringSize)
+        
+        let femaleDoubleSize = convertStringDoubleSize! + 1.5
+        
+        let femaleStringSize = String(femaleDoubleSize)
+        
+        if self.shoeType == "Shoe" || self.shoeType == "Men's Basketball Shoe"
+        {
+            self.nikeWKWebView.evaluateJavaScript("document.querySelector(\"input[aria-label='US M \" + \(maleStringSize) + \" / W \" + \(femaleStringSize) + \"']\").click();", completionHandler: nil)
+        }
+        else
+        {
+            self.nikeWKWebView.evaluateJavaScript("document.querySelector(\"input[aria-label='US 12']\").click();", completionHandler: nil)
+        }
+        
+        self.nikeWKWebView.evaluateJavaScript("document.querySelector(\"button[aria-label='Add to Cart']\").click();", completionHandler: nil)
     }
 }
