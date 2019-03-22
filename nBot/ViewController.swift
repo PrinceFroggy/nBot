@@ -202,20 +202,26 @@ class ViewController: NSViewController {
                             
                             print("There are \(count) items!")
                             
-                            if (foundItem)
+                            self.browserDelay.asyncAfter(deadline: .now() + self.delay)
                             {
-                                if (SharingManager.sharedInstance.shoeColor.isEmpty)
+                                DispatchQueue.main.async
                                 {
-                                    self.AI_FourthStep_SelectSize_AddToCart()
+                                    if (foundItem)
+                                    {
+                                        if (SharingManager.sharedInstance.shoeColor.isEmpty)
+                                        {
+                                            self.AI_FourthStep_SelectSize_AddToCart()
+                                        }
+                                        else
+                                        {
+                                            self.AI_ThirdStep_SelectColor()
+                                        }
+                                    }
+                                    else
+                                    {
+                                        self.AI_SecondStep_LoadCategory_FindItem_LoadItem()
+                                    }
                                 }
-                                else
-                                {
-                                    self.AI_ThirdStep_SelectColor()
-                                }
-                            }
-                            else
-                            {
-                                self.AI_SecondStep_LoadCategory_FindItem_LoadItem()
                             }
                         }
                     })
@@ -226,51 +232,48 @@ class ViewController: NSViewController {
     
     func AI_ThirdStep_SelectColor()
     {
-        self.browserDelay.asyncAfter(deadline: .now() + self.delay)
+        DispatchQueue.main.async
         {
-            DispatchQueue.main.async
+            var urlReq: URLRequest?
+            var foundItemColor = false
+            
+            self.nikeWKWebView.evaluateJavaScript("document.documentElement.outerHTML.toString()", completionHandler: { (html: Any?, error: Error?) in
+                
+                let htmlText = html as! String
+                
+                if let doc = try? Kanna.HTML(html: htmlText, encoding: .utf8)
                 {
-                    var urlReq: URLRequest?
-                    var foundItemColor = false
-                    
-                    self.nikeWKWebView.evaluateJavaScript("document.documentElement.outerHTML.toString()", completionHandler: { (html: Any?, error: Error?) in
+                    for item in doc.css("div[class^='colorway-container d-sm-ib d-lg-tc pr1-sm css-1eouwf2']")
+                    {
+                        let itemSelection = item.css("a[role^='option']")
                         
-                        let htmlText = html as! String
-                        
-                        if let doc = try? Kanna.HTML(html: htmlText, encoding: .utf8)
-                        {
-                            for item in doc.css("div[class^='colorway-container d-sm-ib d-lg-tc pr1-sm css-1eouwf2']")
-                            {
-                                let itemSelection = item.css("a[role^='option']")
+                        let itemColour = item.css("img[alt]")
 
-                                let itemColour = item.css("img[alt]")
+                        print("item Colour = \(itemColour.first!["alt"]!)")
+                        print("item Href: \(itemSelection.first!["href"]!)")
 
-                                print("item Colour = \(itemColour.first!["alt"]!)")
-                                print("item Href: \(itemSelection.first!["href"]!)")
-                                
-                                if itemColour.first!["alt"]!.range(of:SharingManager.sharedInstance.shoeColor) != nil
-                                {
-                                    foundItemColor = true
+                        if itemColour.first!["alt"]!.range(of:SharingManager.sharedInstance.shoeColor) != nil
+                        {
+                            foundItemColor = true
                                     
-                                    urlReq = URLRequest(url: URL(string: itemSelection.first!["href"]!)!)
+                            urlReq = URLRequest(url: URL(string: itemSelection.first!["href"]!)!)
                                     
-                                    self.nikeWKWebView.load(urlReq!)
+                            self.nikeWKWebView.load(urlReq!)
                                     
-                                    break
-                                }
-                            }
+                            break
                         }
+                    }
+                }
+                
+                if (foundItemColor)
+                {
+                    self.AI_FourthStep_SelectSize_AddToCart()
+                }
+                else
+                {
                         
-                        if (foundItemColor)
-                        {
-                            self.AI_FourthStep_SelectSize_AddToCart()
-                        }
-                        else
-                        {
-                            
-                        }
-                    })
-            }
+                }
+            })
         }
     }
     
