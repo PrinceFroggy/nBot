@@ -21,7 +21,6 @@ class ViewController: NSViewController {
     var delay = 3.0
     
     var urlMainJordanPageReq: URLRequest?
-    var itemColor: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -188,8 +187,6 @@ class ViewController: NSViewController {
                                 
                                 print("item Url: \(itemUrl.first!["href"]!)")
                                 
-                                //CHECK IF CHECKLIST ITEM NAME MATCHES CURRENT ITEM
-                                
                                 if itemName.first!.text!.range(of:SharingManager.sharedInstance.shoeName) != nil
                                 {
                                     foundItem = true
@@ -234,8 +231,6 @@ class ViewController: NSViewController {
             DispatchQueue.main.async
                 {
                     var urlReq: URLRequest?
-                    
-                    var missingItemColor = false
                     var foundItemColor = false
                     
                     self.nikeWKWebView.evaluateJavaScript("document.documentElement.outerHTML.toString()", completionHandler: { (html: Any?, error: Error?) in
@@ -247,43 +242,21 @@ class ViewController: NSViewController {
                             for item in doc.css("div[class^='colorway-container d-sm-ib d-lg-tc pr1-sm css-1eouwf2']")
                             {
                                 let itemSelection = item.css("a[role^='option']")
-                                
-                                if itemSelection.first?["title"]?.isEmpty ?? true
-                                {
-                                    missingItemColor = true
-                                }
-                                else
-                                {
-                                    self.itemColor = itemSelection.first!["title"]!
-                                }
-                                
-                                if missingItemColor != true
-                                {
-                                    print("item Color: \(itemSelection.first!["title"]!)")
-                                }
-                                
+
+                                let itemColour = item.css("img[alt]")
+
+                                print("item Colour = \(itemColour.first!["alt"]!)")
                                 print("item Href: \(itemSelection.first!["href"]!)")
                                 
-                                if missingItemColor
+                                if itemColour.first!["alt"]!.range(of:SharingManager.sharedInstance.shoeColor) != nil
                                 {
+                                    foundItemColor = true
+                                    
                                     urlReq = URLRequest(url: URL(string: itemSelection.first!["href"]!)!)
                                     
                                     self.nikeWKWebView.load(urlReq!)
                                     
                                     break
-                                }
-                                else
-                                {
-                                    if self.itemColor!.range(of:SharingManager.sharedInstance.shoeColor) != nil
-                                    {
-                                        foundItemColor = true
-                                        
-                                        urlReq = URLRequest(url: URL(string: itemSelection.first!["href"]!)!)
-                                        
-                                        self.nikeWKWebView.load(urlReq!)
-                                        
-                                        break
-                                    }
                                 }
                             }
                         }
@@ -305,5 +278,4 @@ class ViewController: NSViewController {
     {
         
     }
-    
 }
