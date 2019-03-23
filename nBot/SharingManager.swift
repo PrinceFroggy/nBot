@@ -14,6 +14,19 @@ class SharingManager
     var shoeName = ""
     var shoeSize = ""
     var shoeColor = ""
+    var firstName = ""
+    var lastName = ""
+    var postalCode = ""
+    var address = ""
+    var municipality = ""
+    var province: Int?
+    var phone = ""
+    var email = ""
+    var cardName = ""
+    var cardNumber = ""
+    var expMonth = ""
+    var expYear = ""
+    var securityCode = ""
     
     static let sharedInstance = SharingManager()
 }

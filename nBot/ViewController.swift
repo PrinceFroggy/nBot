@@ -28,10 +28,6 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        //let urlReq = URLRequest(url: URL(string: "https://store.nike.com/ca/en_gb/pw/mens-jordan-shoes/7puZofqZoi3")!)
-        
-        //self.nikeWKWebView.load(urlReq)
     }
 
     override var representedObject: Any? {
@@ -39,11 +35,10 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
+    
     @IBAction func botButtonPressed(_ sender: NSButton)
     {
         AI_FirstStep_LoadWebsite_LoadPage()
-        //AI_SecondStep_LoadCategory_FindItem()
     }
     
     @IBAction func settingsButtonPressed(_ sender: NSButton)
@@ -93,16 +88,25 @@ class ViewController: NSViewController {
                                             
                                             print(itemCountryName!.first!.text!)
                                             
+                                            print("")
+                                            
                                             print("CANADA HREF = \(itemCountryName!.first!["href"]!)")
                                         }
+                                        
+                                        /*
                                         else
                                         {
                                             itemCountryName = item.css(("a[class^='lang-tunnel__country-link js-countryLink']"))
                                             
                                             print(itemCountryName!.first!.text!)
                                             
+                                            print("")
+                                            
                                             print("USA HREF = \(itemCountryName!.first!["href"]!)")
                                         }
+                                        */
+                                        
+                                        print("")
                                         
                                         urlReq = URLRequest(url: URL(string: itemCountryName!.first!["href"]!)!)
                                         
@@ -191,6 +195,8 @@ class ViewController: NSViewController {
                                 
                                 print("item Url: \(itemUrl.first!["href"]!)")
                                 
+                                print("")
+                                
                                 if itemName.first!.text!.range(of:SharingManager.sharedInstance.shoeName) != nil
                                 {
                                     foundItem = true
@@ -206,6 +212,8 @@ class ViewController: NSViewController {
                             
                             print("There are \(count) items!")
                             
+                            print("")
+                            
                             self.browserDelay.asyncAfter(deadline: .now() + self.delay)
                             {
                                 DispatchQueue.main.async
@@ -214,7 +222,7 @@ class ViewController: NSViewController {
                                     {
                                         if (SharingManager.sharedInstance.shoeColor.isEmpty)
                                         {
-                                            self.AI_FourthStep_SelectSize_AddToCart()
+                                            self.AI_FourthStep_SelectSize_AddToCart_Checkout()
                                         }
                                         else
                                         {
@@ -254,7 +262,8 @@ class ViewController: NSViewController {
 
                         print("item Colour = \(itemColour.first!["alt"]!)")
                         print("item Href: \(itemSelection.first!["href"]!)")
-
+                        print("")
+                        
                         if itemColour.first!["alt"]!.range(of:SharingManager.sharedInstance.shoeColor) != nil
                         {
                             urlReq = URLRequest(url: URL(string: itemSelection.first!["href"]!)!)
@@ -270,32 +279,128 @@ class ViewController: NSViewController {
                 {
                     DispatchQueue.main.async
                     {
-                        self.AI_FourthStep_SelectSize_AddToCart()
+                        self.AI_FourthStep_SelectSize_AddToCart_Checkout()
                     }
                 }
             })
         }
     }
     
-    func AI_FourthStep_SelectSize_AddToCart()
+    func AI_FourthStep_SelectSize_AddToCart_Checkout()
     {
-        let maleStringSize = String(SharingManager.sharedInstance.shoeSize)
-        
-        let convertStringDoubleSize = Double(maleStringSize)
-        
-        let femaleDoubleSize = convertStringDoubleSize! + 1.5
-        
-        let femaleStringSize = String(femaleDoubleSize)
-        
-        if self.shoeType == "Shoe" || self.shoeType == "Men's Basketball Shoe"
+        DispatchQueue.main.async
         {
-            self.nikeWKWebView.evaluateJavaScript("document.querySelector(\"input[aria-label='US M \" + \(maleStringSize) + \" / W \" + \(femaleStringSize) + \"']\").click();", completionHandler: nil)
+            let maleStringSize = String(SharingManager.sharedInstance.shoeSize)
+            
+            let convertStringDoubleSize = Double(maleStringSize)
+            
+            let femaleDoubleSize = convertStringDoubleSize! + 1.5
+            
+            let femaleStringSize = String(femaleDoubleSize)
+            
+            self.browserDelay.asyncAfter(deadline: .now() + 5)
+            {
+                DispatchQueue.main.async
+                {
+                    if self.shoeType == "Shoe" || self.shoeType == "Men's Basketball Shoe"
+                    {
+                        self.nikeWKWebView.evaluateJavaScript("document.querySelector(\"input[aria-label='US M \" + \(maleStringSize) + \" / W \" + \(femaleStringSize) + \"']\").click();", completionHandler: nil)
+                    }
+                    else
+                    {
+                        self.nikeWKWebView.evaluateJavaScript("document.querySelector(\"input[aria-label='US \(maleStringSize)']\").click();", completionHandler: nil)
+                    }
+                    
+                    self.nikeWKWebView.scrollToEndOfDocument(self)
+                    
+                    self.browserDelay.asyncAfter(deadline: .now() + 10)
+                    {
+                        DispatchQueue.main.async
+                        {
+                            self.nikeWKWebView.evaluateJavaScript("document.querySelector(\"button[aria-label='Add to Cart']\").click();", completionHandler: nil)
+                            
+                            self.browserDelay.asyncAfter(deadline: .now() + self.delay)
+                            {
+                                DispatchQueue.main.async
+                                {
+                                    self.nikeWKWebView.evaluateJavaScript("document.querySelector(\"button[data-test='qa-cart-checkout']\").click();", completionHandler: nil)
+                                    
+                                    self.browserDelay.asyncAfter(deadline: .now() + self.delay)
+                                    {
+                                        DispatchQueue.main.async
+                                        {
+                                            self.nikeWKWebView.evaluateJavaScript("document.querySelector(\"div[class='js-guestCheckout ch4_btn cartButton ch4_btnOrange']\").click();", completionHandler: nil)
+                                            
+                                            self.browserDelay.asyncAfter(deadline: .now() + 20)
+                                            {
+                                                DispatchQueue.main.async
+                                                {
+                                                    self.AI_FifthStep_Shipping_Billing_Payment()
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
-        else
+    }
+    
+    // THIS FUNCTION DOES NOT WORK DUE TO NOT BEING ABLE TO EXECUTE ANGULARJS CODE.
+    
+    func AI_FifthStep_Shipping_Billing_Payment()
+    {
+        DispatchQueue.main.async
         {
-            self.nikeWKWebView.evaluateJavaScript("document.querySelector(\"input[aria-label='US 12']\").click();", completionHandler: nil)
+            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"Shipping_FirstName\"); e.value = \(SharingManager.sharedInstance.firstName); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+            
+            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"Shipping_LastName\"); e.value = \(SharingManager.sharedInstance.lastName); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+            
+            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"Shipping_PostCode\"); e.value = \(SharingManager.sharedInstance.postalCode); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+            
+            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"Shipping_Address1\"); e.value = \(SharingManager.sharedInstance.address); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+            
+            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"Shipping_Address3\"); e.value = \(SharingManager.sharedInstance.municipality); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+            
+              self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"Shipping_Territory\"); e.value = \(SharingManager.sharedInstance.province); var $e = angular.element(e); $e.triggerHandler('change');", completionHandler: nil)
+            
+            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"Shipping_phonenumber\"); e.value = \(SharingManager.sharedInstance.phone); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+            
+            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"shipping_Email\"); e.value = \(SharingManager.sharedInstance.email); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+            
+            self.nikeWKWebView.evaluateJavaScript("document.querySelector(\"span[class='checkbox-checkmark']\").click();", completionHandler: nil)
+            
+            self.nikeWKWebView.evaluateJavaScript("document.querySelector(\"button[id='shippingSubmit']\").click();", completionHandler: nil)
+            
+            self.browserDelay.asyncAfter(deadline: .now() + self.delay)
+            {
+                DispatchQueue.main.async
+                {
+                    self.nikeWKWebView.evaluateJavaScript("document.querySelector(\"button[id='billingSubmit']\").click();", completionHandler: nil)
+                    
+                    self.browserDelay.asyncAfter(deadline: .now() + self.delay)
+                    {
+                        DispatchQueue.main.async
+                        {
+                            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"CreditCardHolder\"); e.value = \(SharingManager.sharedInstance.cardName); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+                            
+                            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"KKnr\"); e.value = \(SharingManager.sharedInstance.cardNumber); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+                            
+                            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"KKMonth\"); e.value = \(SharingManager.sharedInstance.expMonth); var $e = angular.element(e); $e.triggerHandler('change');", completionHandler: nil)
+                            
+                            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"KKYear\"); e.value = \(SharingManager.sharedInstance.expYear); var $e = angular.element(e); $e.triggerHandler('change');", completionHandler: nil)
+                            
+                            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"CCCVC\"); e.value = \(SharingManager.sharedInstance.securityCode); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+                            
+                            self.nikeWKWebView.evaluateJavaScript("document.querySelector(\"button[id='BtnPurchase']\").click();", completionHandler: nil)
+                        }
+                    }
+                }
+            }
         }
-        
-        self.nikeWKWebView.evaluateJavaScript("document.querySelector(\"button[aria-label='Add to Cart']\").click();", completionHandler: nil)
     }
 }
+

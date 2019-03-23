@@ -764,11 +764,11 @@
             <objects>
                 <viewController storyboardIdentifier="settings" id="1Fn-rD-Rme" customClass="settingsViewController" customModule="nBot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="yoI-ZX-mKk">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="413"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="437"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qyK-Gi-YYW">
-                                <rect key="frame" x="20" y="369" width="413" height="26"/>
+                                <rect key="frame" x="20" y="393" width="413" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="country" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="bDb-1K-kfn">
                                     <font key="font" metaFont="system"/>
@@ -776,12 +776,11 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <objectValues>
                                         <string>CA</string>
-                                        <string>US</string>
                                     </objectValues>
                                 </comboBoxCell>
                             </comboBox>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BnG-Uj-Z0a">
-                                <rect key="frame" x="20" y="343" width="410" height="22"/>
+                                <rect key="frame" x="20" y="367" width="410" height="22"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="shoe name" drawsBackground="YES" id="UjU-bs-HTI">
                                     <font key="font" metaFont="system"/>
@@ -789,19 +788,8 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aDd-oM-b9t">
-                                <rect key="frame" x="185" y="13" width="81" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SCZ-9K-hG4">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="closeButtonPressed:" target="1Fn-rD-Rme" id="Yr6-tz-Hvt"/>
-                                </connections>
-                            </button>
                             <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iBb-5R-cSc">
-                                <rect key="frame" x="20" y="308" width="413" height="26"/>
+                                <rect key="frame" x="20" y="335" width="413" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="shoe size" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="tXj-KK-Skp">
                                     <font key="font" metaFont="system"/>
@@ -833,7 +821,7 @@
                                 </comboBoxCell>
                             </comboBox>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kfT-VX-QHV">
-                                <rect key="frame" x="20" y="282" width="410" height="22"/>
+                                <rect key="frame" x="20" y="309" width="410" height="22"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="shoe color" drawsBackground="YES" id="JEq-EQ-GuQ">
                                     <font key="font" metaFont="system"/>
@@ -841,10 +829,166 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hun-L9-B73">
+                                <rect key="frame" x="20" y="277" width="196" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="first name" drawsBackground="YES" id="qb4-HR-jLQ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WGq-eZ-BSm">
+                                <rect key="frame" x="234" y="277" width="196" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="last name" drawsBackground="YES" id="saZ-7i-eoH">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7f0-tm-hrv">
+                                <rect key="frame" x="20" y="245" width="196" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="postal code" drawsBackground="YES" id="RmO-w3-Z1Z">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lZz-je-jwQ">
+                                <rect key="frame" x="234" y="245" width="196" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="address" drawsBackground="YES" id="cCs-Fx-ZCc">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nMk-5s-yhp">
+                                <rect key="frame" x="20" y="213" width="196" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="municipality" drawsBackground="YES" id="bQv-Vt-p7t">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mLn-uC-grS">
+                                <rect key="frame" x="235" y="210" width="198" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="province" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="U4g-Ug-7ZZ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <objectValues>
+                                        <string>Ontario</string>
+                                        <string>British Columbia</string>
+                                        <string>Manitoba</string>
+                                        <string>Alberta</string>
+                                        <string>New Brunswick</string>
+                                        <string>Newfoundland and Labrador</string>
+                                        <string>Northwest Territories</string>
+                                        <string>Nova Scotia</string>
+                                        <string>Nunavut</string>
+                                        <string>Prince Edward Island</string>
+                                        <string>Quebec</string>
+                                        <string>Saskatchewan</string>
+                                        <string>Yukon</string>
+                                    </objectValues>
+                                </comboBoxCell>
+                            </comboBox>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="INR-Lx-eKr">
+                                <rect key="frame" x="20" y="181" width="196" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="phone" drawsBackground="YES" id="BO6-z1-fAR">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qeb-Jz-3WV">
+                                <rect key="frame" x="234" y="181" width="196" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="email" drawsBackground="YES" id="bE7-z5-fZK">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V0h-R2-OW8">
+                                <rect key="frame" x="20" y="149" width="410" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="name on card" drawsBackground="YES" id="Jzu-nI-2wD">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D8i-DE-r9P">
+                                <rect key="frame" x="20" y="117" width="410" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="card number" drawsBackground="YES" id="cVX-S8-W6M">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9fs-xJ-fIh">
+                                <rect key="frame" x="20" y="85" width="196" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="expiration month" drawsBackground="YES" id="AEe-Vk-9b0">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wlw-r7-ySI">
+                                <rect key="frame" x="234" y="85" width="196" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="expiration year" drawsBackground="YES" id="ac4-MC-UVX">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h4W-6X-bxN">
+                                <rect key="frame" x="20" y="53" width="410" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="security code" drawsBackground="YES" id="Vc1-cH-kgQ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aDd-oM-b9t">
+                                <rect key="frame" x="185" y="13" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SCZ-9K-hG4">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="closeButtonPressed:" target="1Fn-rD-Rme" id="Yr6-tz-Hvt"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="addressTextField" destination="lZz-je-jwQ" id="Yw0-8c-A8i"/>
+                        <outlet property="cardNameTextField" destination="V0h-R2-OW8" id="5tb-LN-sSF"/>
+                        <outlet property="cardNumberTextField" destination="D8i-DE-r9P" id="G8Y-Bz-HBp"/>
                         <outlet property="countryComboBox" destination="qyK-Gi-YYW" id="APP-MY-WsG"/>
+                        <outlet property="emailTextField" destination="Qeb-Jz-3WV" id="Opo-x0-DGM"/>
+                        <outlet property="expMonthTextField" destination="9fs-xJ-fIh" id="Gmj-1Y-mhf"/>
+                        <outlet property="expYearTextField" destination="Wlw-r7-ySI" id="GK4-yJ-KEZ"/>
+                        <outlet property="firstNameTextField" destination="Hun-L9-B73" id="xxl-oQ-bPm"/>
+                        <outlet property="lastNameTextField" destination="WGq-eZ-BSm" id="yfu-eW-3c5"/>
+                        <outlet property="municipalityTextField" destination="nMk-5s-yhp" id="csC-fH-j9k"/>
+                        <outlet property="phoneTextField" destination="INR-Lx-eKr" id="boV-9n-EWa"/>
+                        <outlet property="postalCodeTextField" destination="7f0-tm-hrv" id="OfG-AG-tk0"/>
+                        <outlet property="provinceComboBox" destination="mLn-uC-grS" id="Oz1-di-BGd"/>
+                        <outlet property="securityCodeTextField" destination="h4W-6X-bxN" id="br4-si-iII"/>
                         <outlet property="shoeColorTextField" destination="kfT-VX-QHV" id="XBk-cw-OKH"/>
                         <outlet property="shoeNameTextField" destination="BnG-Uj-Z0a" id="b5e-fS-yae"/>
                         <outlet property="shoeSizeComboBox" destination="iBb-5R-cSc" id="FXQ-E1-fb5"/>
@@ -852,7 +996,7 @@
                 </viewController>
                 <customObject id="Kew-Ch-EnZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="85" y="1565.5"/>
+            <point key="canvasLocation" x="85" y="1577.5"/>
         </scene>
     </scenes>
 </document>
