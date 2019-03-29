@@ -748,6 +748,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="testButtonPressed:" target="XfG-lQ-9wD" id="YJj-qz-DCm"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>

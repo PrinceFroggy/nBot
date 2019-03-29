@@ -36,6 +36,10 @@ class ViewController: NSViewController {
         }
     }
     
+    @IBAction func testButtonPressed(_ sender: NSButton) {
+    }
+    
+    
     @IBAction func botButtonPressed(_ sender: NSButton)
     {
         AI_FirstStep_LoadWebsite_LoadPage()
@@ -331,7 +335,7 @@ class ViewController: NSViewController {
                                         {
                                             self.nikeWKWebView.evaluateJavaScript("document.querySelector(\"div[class='js-guestCheckout ch4_btn cartButton ch4_btnOrange']\").click();", completionHandler: nil)
                                             
-                                            self.browserDelay.asyncAfter(deadline: .now() + 20)
+                                            self.browserDelay.asyncAfter(deadline: .now() + 50)
                                             {
                                                 DispatchQueue.main.async
                                                 {
@@ -349,27 +353,27 @@ class ViewController: NSViewController {
         }
     }
     
-    // THIS FUNCTION DOES NOT WORK DUE TO NOT BEING ABLE TO EXECUTE ANGULARJS CODE.
-    
     func AI_FifthStep_Shipping_Billing_Payment()
     {
         DispatchQueue.main.async
         {
-            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"Shipping_FirstName\"); e.value = \(SharingManager.sharedInstance.firstName); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+            //self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"Shipping_FirstName\"); e.value = \(SharingManager.sharedInstance.firstName); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
             
-            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"Shipping_LastName\"); e.value = \(SharingManager.sharedInstance.lastName); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+            self.nikeWKWebView.evaluateJavaScript("document.getElementById(\"Shipping_FirstName\").value = \(SharingManager.sharedInstance.firstName); document.getElementById(\"Shipping_FirstName\").dispatchEvent(new Event('input'));", completionHandler: nil)
             
-            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"Shipping_PostCode\"); e.value = \(SharingManager.sharedInstance.postalCode); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+            self.nikeWKWebView.evaluateJavaScript("document.getElementById(\"Shipping_LastName\").value = \(SharingManager.sharedInstance.lastName); document.getElementById(\"Shipping_LastName\").dispatchEvent(new Event('input'));", completionHandler: nil)
             
-            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"Shipping_Address1\"); e.value = \(SharingManager.sharedInstance.address); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+            self.nikeWKWebView.evaluateJavaScript("document.getElementById(\"Shipping_PostCode\").value = \(SharingManager.sharedInstance.postalCode); document.getElementById(\"Shipping_PostCode\").dispatchEvent(new Event('input'));", completionHandler: nil)
             
-            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"Shipping_Address3\"); e.value = \(SharingManager.sharedInstance.municipality); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+            self.nikeWKWebView.evaluateJavaScript("document.getElementById(\"Shipping_Address1\").value = \(SharingManager.sharedInstance.address); document.getElementById(\"Shipping_Address1\").dispatchEvent(new Event('input'));", completionHandler: nil)
             
-              self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"Shipping_Territory\"); e.value = \(SharingManager.sharedInstance.province); var $e = angular.element(e); $e.triggerHandler('change');", completionHandler: nil)
+             self.nikeWKWebView.evaluateJavaScript("document.getElementById(\"Shipping_Address3\").value = \(SharingManager.sharedInstance.municipality); document.getElementById(\"Shipping_Address3\").dispatchEvent(new Event('input'));", completionHandler: nil)
             
-            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"Shipping_phonenumber\"); e.value = \(SharingManager.sharedInstance.phone); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+            self.nikeWKWebView.evaluateJavaScript("document.getElementById(\"Shipping_Territory\").value = \(SharingManager.sharedInstance.province); document.getElementById(\"Shipping_Territory\").dispatchEvent(new Event('input'));", completionHandler: nil)
             
-            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"shipping_Email\"); e.value = \(SharingManager.sharedInstance.email); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+            self.nikeWKWebView.evaluateJavaScript("document.getElementById(\"Shipping_phonenumber\").value = \(SharingManager.sharedInstance.phone); document.getElementById(\"Shipping_phonenumber\").dispatchEvent(new Event('input'));", completionHandler: nil)
+            
+            self.nikeWKWebView.evaluateJavaScript("document.getElementById(\"shipping_Email\").value = \(SharingManager.sharedInstance.email); document.getElementById(\"shipping_Email\").dispatchEvent(new Event('input'));", completionHandler: nil)
             
             self.nikeWKWebView.evaluateJavaScript("document.querySelector(\"span[class='checkbox-checkmark']\").click();", completionHandler: nil)
             
@@ -385,15 +389,15 @@ class ViewController: NSViewController {
                     {
                         DispatchQueue.main.async
                         {
-                            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"CreditCardHolder\"); e.value = \(SharingManager.sharedInstance.cardName); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+                            self.nikeWKWebView.evaluateJavaScript("document.getElementById(\"CreditCardHolder\").value = \(SharingManager.sharedInstance.cardName); document.getElementById(\"CreditCardHolder\").dispatchEvent(new Event('input'));", completionHandler: nil)
                             
-                            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"KKnr\"); e.value = \(SharingManager.sharedInstance.cardNumber); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+                            self.nikeWKWebView.evaluateJavaScript("document.getElementById(\"KKnr\").value = \(SharingManager.sharedInstance.cardNumber); document.getElementById(\"KKnr\").dispatchEvent(new Event('input'));", completionHandler: nil)
                             
-                            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"KKMonth\"); e.value = \(SharingManager.sharedInstance.expMonth); var $e = angular.element(e); $e.triggerHandler('change');", completionHandler: nil)
+                            self.nikeWKWebView.evaluateJavaScript("document.getElementById(\"KKMonth\").value = \(SharingManager.sharedInstance.expMonth); document.getElementById(\"KKMonth\").dispatchEvent(new Event('change'));", completionHandler: nil)
                             
-                            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"KKYear\"); e.value = \(SharingManager.sharedInstance.expYear); var $e = angular.element(e); $e.triggerHandler('change');", completionHandler: nil)
+                            self.nikeWKWebView.evaluateJavaScript("document.getElementById(\"KKYear\").value = \(SharingManager.sharedInstance.expYear); document.getElementById(\"KKYear\").dispatchEvent(new Event('change'));", completionHandler: nil)
                             
-                            self.nikeWKWebView.evaluateJavaScript("var e = document.getElementById(\"CCCVC\"); e.value = \(SharingManager.sharedInstance.securityCode); var $e = angular.element(e); $e.triggerHandler('input');", completionHandler: nil)
+                            self.nikeWKWebView.evaluateJavaScript("document.getElementById(\"CCCVC\").value = \(SharingManager.sharedInstance.securityCode); document.getElementById(\"CCCVC\").dispatchEvent(new Event('input'));", completionHandler: nil)
                             
                             self.nikeWKWebView.evaluateJavaScript("document.querySelector(\"button[id='BtnPurchase']\").click();", completionHandler: nil)
                         }
